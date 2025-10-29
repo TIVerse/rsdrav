@@ -276,7 +276,7 @@ fn test_layout_calculations() {
     assert_eq!(inner.width, 96);
     assert_eq!(inner.height, 46);
 
-    let (left, right) = rect.split_v(50);
+    let (left, right) = rect.split_h(50);
     assert_eq!(left.width, 50);
     assert_eq!(right.width, 50);
 }

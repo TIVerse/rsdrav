@@ -1,0 +1,6 @@
+---
+source: tests/visual_regression.rs
+assertion_line: 168
+expression: output2
+---
+Text { content: "Count: 100", style: Style { fg: None, bg: None, modifiers: Modifier(0x0) } }
