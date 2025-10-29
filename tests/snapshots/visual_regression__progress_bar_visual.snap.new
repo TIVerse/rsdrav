@@ -1,0 +1,6 @@
+---
+source: tests/visual_regression.rs
+assertion_line: 69
+expression: output
+---
+Text { content: "Loading ███████████████████░░░░░░░░░░░ 65%", style: Style { fg: Some(Color { r: 255, g: 255, b: 255 }), bg: None, modifiers: Modifier(0x0) } }

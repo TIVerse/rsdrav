@@ -1,0 +1,6 @@
+---
+source: tests/visual_regression.rs
+assertion_line: 48
+expression: output
+---
+Container { children: [Text { content: "┌─ Test Panel ─┐", style: Style { fg: Some(Color { r: 128, g: 128, b: 128 }), bg: None, modifiers: Modifier(0x0) } }, Text { content: "Content inside panel", style: Style { fg: None, bg: None, modifiers: Modifier(0x0) } }, Text { content: "└─────┘", style: Style { fg: Some(Color { r: 128, g: 128, b: 128 }), bg: None, modifiers: Modifier(0x0) } }], area: Rect { x: 0, y: 0, width: 0, height: 0 }, style: Style { fg: None, bg: None, modifiers: Modifier(0x0) }, direction: Vertical }

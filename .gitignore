@@ -1,0 +1,45 @@
+# Rust build artifacts
+/target
+Cargo.lock
+
+# Fuzzing artifacts
+fuzz/artifacts/
+fuzz/corpus/
+
+# Benchmarking
+criterion/
+
+# IDE and editor files
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+.DS_Store
+
+# OS-specific files
+Thumbs.db
+.AppleDouble
+.LSOverride
+
+# Temporary files
+*.tmpYou
+*.temp
+*.log
+
+# Compiled files
+*.o
+*.so
+*.rlib
+*.dll
+
+# Documentation build
+book/
+
+# Plugin development
+*.wasm.bak
+plugins/*/target/
+
+# Environment variables
+.env
+.env.local

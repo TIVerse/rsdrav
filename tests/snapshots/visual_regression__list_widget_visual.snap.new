@@ -1,0 +1,6 @@
+---
+source: tests/visual_regression.rs
+assertion_line: 80
+expression: output
+---
+Container { children: [Text { content: "  \"&str\"", style: Style { fg: None, bg: None, modifiers: Modifier(0x0) } }, Text { content: "> \"&str\"", style: Style { fg: None, bg: Some(Color { r: 0, g: 0, b: 255 }), modifiers: Modifier(0x0) } }, Text { content: "  \"&str\"", style: Style { fg: None, bg: None, modifiers: Modifier(0x0) } }, Text { content: "  \"&str\"", style: Style { fg: None, bg: None, modifiers: Modifier(0x0) } }], area: Rect { x: 0, y: 0, width: 0, height: 0 }, style: Style { fg: None, bg: None, modifiers: Modifier(0x0) }, direction: Vertical }

@@ -1,0 +1,61 @@
+[package]
+name = "rsdrav"
+version = "1.0.0"
+edition = "2021"
+rust-version = "1.70"
+license = "MIT OR Apache-2.0"
+description = "Production-ready reactive TUI framework with integrated state, commands, themes, and plugins"
+keywords = ["tui", "terminal", "reactive", "ui", "framework"]
+categories = ["command-line-interface", "gui"]
+repository = "https://github.com/vedanthq/rsdrav"
+
+[features]
+default = ["crossterm"]
+serde = ["dep:serde", "dep:serde_json"]
+tokio = ["dep:tokio"]
+crossterm = ["dep:crossterm"]
+termion = ["dep:termion"]
+plugin-dylib = ["dep:libloading"]
+plugin-rhai = ["dep:rhai"]
+plugin-wasm = ["dep:wasmtime"]
+
+[dependencies]
+thiserror = "1"
+anyhow = "1"
+smallvec = "1"
+bitflags = "2"
+ahash = "0.8"
+unicode-width = "0.1"
+unicode-segmentation = "1"
+crossbeam-channel = "0.5"
+crossterm = { version = "0.27", optional = true }
+termion = { version = "4", optional = true }
+serde = { version = "1", features = ["derive"], optional = true }
+serde_json = { version = "1", optional = true }
+tokio = { version = "1", features = ["rt", "rt-multi-thread", "time", "sync", "macros"], optional = true }
+libloading = { version = "0.8", optional = true }
+rhai = { version = "1", optional = true }
+wasmtime = { version = "20", optional = true }
+
+[dev-dependencies]
+proptest = "1"
+criterion = "0.5"
+insta = { version = "1", features = ["glob"] }
+
+[[bench]]
+name = "render_benchmark"
+harness = false
+
+[[bench]]
+name = "comprehensive_bench"
+harness = false
+
+[[bin]]
+name = "memory_test"
+path = "tools/memory_test.rs"
+required-features = ["crossterm"]
+
+[[bin]]
+name = "stress_test"
+path = "tools/stress_test.rs"
+required-features = ["crossterm"]

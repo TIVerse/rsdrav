@@ -1,0 +1,6 @@
+---
+source: tests/visual_regression.rs
+assertion_line: 27
+expression: output
+---
+Text { content: "Hello, World!", style: Style { fg: Some(Color { r: 0, g: 255, b: 0 }), bg: None, modifiers: Modifier(0x0) } }

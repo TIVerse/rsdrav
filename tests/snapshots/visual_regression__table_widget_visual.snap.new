@@ -1,0 +1,6 @@
+---
+source: tests/visual_regression.rs
+assertion_line: 113
+expression: output
+---
+Container { children: [Text { content: "Name            │ Value     ", style: Style { fg: Some(Color { r: 255, g: 255, b: 0 }), bg: None, modifiers: Modifier(BOLD) } }, Text { content: "────────────────┼───────────", style: Style { fg: Some(Color { r: 128, g: 128, b: 128 }), bg: None, modifiers: Modifier(0x0) } }, Text { content: "> Alpha           │ 10        ", style: Style { fg: Some(Color { r: 255, g: 255, b: 255 }), bg: Some(Color { r: 0, g: 0, b: 255 }), modifiers: Modifier(0x0) } }, Text { content: "  Beta            │ 20        ", style: Style { fg: None, bg: None, modifiers: Modifier(0x0) } }, Text { content: "  Gamma           │ 30        ", style: Style { fg: None, bg: Some(Color { r: 30, g: 30, b: 30 }), modifiers: Modifier(0x0) } }], area: Rect { x: 0, y: 0, width: 0, height: 0 }, style: Style { fg: None, bg: None, modifiers: Modifier(0x0) }, direction: Vertical }

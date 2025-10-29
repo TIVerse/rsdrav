@@ -1,0 +1,6 @@
+---
+source: tests/visual_regression.rs
+assertion_line: 38
+expression: output
+---
+Container { children: [Text { content: "Line 1", style: Style { fg: None, bg: None, modifiers: Modifier(0x0) } }, Text { content: "Line 2", style: Style { fg: None, bg: None, modifiers: Modifier(0x0) } }, Text { content: "Line 3", style: Style { fg: None, bg: None, modifiers: Modifier(0x0) } }], area: Rect { x: 0, y: 0, width: 0, height: 0 }, style: Style { fg: None, bg: None, modifiers: Modifier(0x0) }, direction: Vertical }

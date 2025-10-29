@@ -1,0 +1,38 @@
+[package]
+name = "rsdrav-fuzz"
+version = "0.0.0"
+publish = false
+edition = "2021"
+
+[package.metadata]
+cargo-fuzz = true
+
+[dependencies]
+libfuzzer-sys = "0.4"
+
+[dependencies.rsdrav]
+path = ".."
+
+[[bin]]
+name = "fuzz_command_parser"
+path = "fuzz_targets/fuzz_command_parser.rs"
+test = false
+doc = false
+
+[[bin]]
+name = "fuzz_buffer_ops"
+path = "fuzz_targets/fuzz_buffer_ops.rs"
+test = false
+doc = false
+
+[[bin]]
+name = "fuzz_signal_updates"
+path = "fuzz_targets/fuzz_signal_updates.rs"
+test = false
+doc = false
+
+[[bin]]
+name = "fuzz_layout"
+path = "fuzz_targets/fuzz_layout.rs"
+test = false
+doc = false

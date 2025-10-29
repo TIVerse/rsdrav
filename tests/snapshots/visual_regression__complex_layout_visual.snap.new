@@ -1,0 +1,6 @@
+---
+source: tests/visual_regression.rs
+assertion_line: 146
+expression: output
+---
+Container { children: [Text { content: "=== Header ===", style: Style { fg: Some(Color { r: 255, g: 255, b: 0 }), bg: None, modifiers: Modifier(BOLD) } }, Container { children: [Text { content: "┌─ Main ─┐", style: Style { fg: Some(Color { r: 128, g: 128, b: 128 }), bg: None, modifiers: Modifier(0x0) } }, Container { children: [Text { content: "Left", style: Style { fg: None, bg: None, modifiers: Modifier(0x0) } }, Text { content: "Right", style: Style { fg: None, bg: None, modifiers: Modifier(0x0) } }], area: Rect { x: 0, y: 0, width: 0, height: 0 }, style: Style { fg: None, bg: None, modifiers: Modifier(0x0) }, direction: Vertical }, Text { content: "└─────┘", style: Style { fg: Some(Color { r: 128, g: 128, b: 128 }), bg: None, modifiers: Modifier(0x0) } }], area: Rect { x: 0, y: 0, width: 0, height: 0 }, style: Style { fg: None, bg: None, modifiers: Modifier(0x0) }, direction: Vertical }, Text { content: "Footer", style: Style { fg: Some(Color { r: 128, g: 128, b: 128 }), bg: None, modifiers: Modifier(0x0) } }], area: Rect { x: 0, y: 0, width: 0, height: 0 }, style: Style { fg: None, bg: None, modifiers: Modifier(0x0) }, direction: Vertical }
