@@ -263,7 +263,10 @@ impl Component for CommandPaletteDemo {
         // Global shortcuts
         if let Event::Key(key) = event {
             // Ctrl+P to open palette
-            if key.modifiers.contains(KeyModifiers::CONTROL) && key.code == KeyCode::Char('p') && !self.palette_visible.get() {
+            if key.modifiers.contains(KeyModifiers::CONTROL)
+                && key.code == KeyCode::Char('p')
+                && !self.palette_visible.get()
+            {
                 self.open_palette();
                 return EventResult::Consumed;
             }
