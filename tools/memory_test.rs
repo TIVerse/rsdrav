@@ -57,13 +57,13 @@ fn test_component_lifecycle() {
     println!("\nTest 2: Component Lifecycle");
 
     struct TestComponent {
-        data: Signal<Vec<u8>>,
+        _data: Signal<Vec<u8>>,
     }
 
     impl TestComponent {
         fn new() -> Self {
             Self {
-                data: Signal::new(vec![0u8; 1024]), // 1KB per component
+                _data: Signal::new(vec![0u8; 1024]), // 1KB per component
             }
         }
     }

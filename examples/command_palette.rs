@@ -261,29 +261,24 @@ impl Component for CommandPaletteDemo {
 
     fn handle_event(&mut self, event: &Event, ctx: &mut EventContext) -> EventResult {
         // Global shortcuts
-        match event {
-            Event::Key(key) => {
-                // Ctrl+P to open palette
-                if key.modifiers.contains(KeyModifiers::CONTROL) && key.code == KeyCode::Char('p') {
-                    if !self.palette_visible.get() {
-                        self.open_palette();
-                        return EventResult::Consumed;
-                    }
-                }
-
-                // Quit when palette is closed
-                if !self.palette_visible.get() && key.code == KeyCode::Char('q') {
-                    // Let default handler quit
-                    return EventResult::Ignored;
-                }
+        if let Event::Key(key) = event {
+            // Ctrl+P to open palette
+            if key.modifiers.contains(KeyModifiers::CONTROL) && key.code == KeyCode::Char('p') && !self.palette_visible.get() {
+                self.open_palette();
+                return EventResult::Consumed;
             }
-            _ => {}
+
+            // Quit when palette is closed
+            if !self.palette_visible.get() && key.code == KeyCode::Char('q') {
+                // Let default handler quit
+                return EventResult::Ignored;
+            }
         }
 
         // Handle palette events
         if self.palette_visible.get() {
-            match event {
-                Event::Key(key) => match key.code {
+            if let Event::Key(key) = event {
+                match key.code {
                     KeyCode::Esc => {
                         self.close_palette();
                         return EventResult::Consumed;
@@ -308,8 +303,7 @@ impl Component for CommandPaletteDemo {
                         return list.handle_event(event, ctx);
                     }
                     _ => {}
-                },
-                _ => {}
+                }
             }
         }
 

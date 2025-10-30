@@ -8,6 +8,13 @@
 //! - Async data fetching simulation
 //! - Signal updates from async context
 
+#[cfg(feature = "tokio")]
+use rsdrav::async_support::AsyncRuntime;
+#[cfg(feature = "tokio")]
+use rsdrav::prelude::*;
+#[cfg(feature = "tokio")]
+use std::time::Duration;
+
 #[cfg(not(feature = "tokio"))]
 fn main() {
     eprintln!("This example requires the 'tokio' feature.");
@@ -17,12 +24,8 @@ fn main() {
 
 #[cfg(feature = "tokio")]
 fn main() -> rsdrav::Result<()> {
-    use rsdrav::async_support::AsyncRuntime;
-    use rsdrav::prelude::*;
-    use std::time::Duration;
-
     // Create app with async support
-    let mut app = App::new()?.with_async()?;
+    let app = App::new()?.with_async()?;
 
     // Spawn background task
     let runtime = AsyncRuntime::new()?;
@@ -54,6 +57,7 @@ impl AsyncDemo {
         }
     }
 
+    #[allow(dead_code)]
     async fn fetch_data(&self) {
         use tokio::time::{sleep, Duration};
 

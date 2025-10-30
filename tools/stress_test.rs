@@ -93,7 +93,7 @@ fn test_signal_storm() -> Result<()> {
     let start = Instant::now();
 
     // Create many signals
-    let signals: Vec<Signal<i32>> = (0..count).map(|i| Signal::new(i)).collect();
+    let signals: Vec<Signal<i32>> = (0..count).map(Signal::new).collect();
 
     // Update all simultaneously
     for (i, sig) in signals.iter().enumerate() {

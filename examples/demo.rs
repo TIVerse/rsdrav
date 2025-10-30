@@ -26,10 +26,10 @@ fn main() -> rsdrav::Result<()> {
     println!("✓ Command engine with parser and handlers");
     println!("✓ Efficient diff-based rendering");
     println!("✓ ANSI color and style support");
-    println!("");
+    println!();
     println!("Current count: {}", count.get());
     println!("Current message: {}", message.get());
-    println!("");
+    println!();
     println!("Run the app with: cargo run --example hello");
 
     Ok(())

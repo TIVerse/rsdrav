@@ -5,9 +5,7 @@
 use rsdrav::prelude::*;
 
 fn main() -> rsdrav::Result<()> {
-    let app = App::new()?.root(HelloWorld).run()?;
-
-    Ok(())
+    App::new()?.root(HelloWorld).run()
 }
 
 /// Simple hello world component

@@ -100,8 +100,8 @@ impl Component for AnimationDemo {
     }
 
     fn handle_event(&mut self, event: &Event, _ctx: &mut EventContext) -> EventResult {
-        match event {
-            Event::Key(key) => match key.code {
+        if let Event::Key(key) = event {
+            match key.code {
                 KeyCode::Char('s') | KeyCode::Char('S') => {
                     self.start_animations();
                     return EventResult::Handled;
@@ -111,8 +111,7 @@ impl Component for AnimationDemo {
                     return EventResult::Handled;
                 }
                 _ => {}
-            },
-            _ => {}
+            }
         }
 
         EventResult::Ignored

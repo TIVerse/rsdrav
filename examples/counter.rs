@@ -63,34 +63,31 @@ impl Component for CounterApp {
 
     fn handle_event(&mut self, event: &Event, _ctx: &mut EventContext) -> EventResult {
         // Handle keyboard input
-        match event {
-            Event::Key(key) => {
-                match key.code {
-                    KeyCode::Char('+') | KeyCode::Char('=') => {
-                        self.count.update(|v| *v += 1);
-                        return EventResult::Handled;
-                    }
-                    KeyCode::Char('-') | KeyCode::Char('_') => {
-                        self.count.update(|v| *v -= 1);
-                        return EventResult::Handled;
-                    }
-                    KeyCode::Up => {
-                        self.count.update(|v| *v += 1);
-                        return EventResult::Handled;
-                    }
-                    KeyCode::Down => {
-                        self.count.update(|v| *v -= 1);
-                        return EventResult::Handled;
-                    }
-                    KeyCode::Char('r') => {
-                        // Reset to zero
-                        self.count.set(0);
-                        return EventResult::Handled;
-                    }
-                    _ => {}
+        if let Event::Key(key) = event {
+            match key.code {
+                KeyCode::Char('+') | KeyCode::Char('=') => {
+                    self.count.update(|v| *v += 1);
+                    return EventResult::Handled;
                 }
+                KeyCode::Char('-') | KeyCode::Char('_') => {
+                    self.count.update(|v| *v -= 1);
+                    return EventResult::Handled;
+                }
+                KeyCode::Up => {
+                    self.count.update(|v| *v += 1);
+                    return EventResult::Handled;
+                }
+                KeyCode::Down => {
+                    self.count.update(|v| *v -= 1);
+                    return EventResult::Handled;
+                }
+                KeyCode::Char('r') => {
+                    // Reset to zero
+                    self.count.set(0);
+                    return EventResult::Handled;
+                }
+                _ => {}
             }
-            _ => {}
         }
 
         EventResult::Ignored

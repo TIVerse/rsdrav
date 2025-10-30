@@ -11,7 +11,6 @@
 //! - Press 'q' to quit
 
 use rsdrav::prelude::*;
-use std::time::{SystemTime, UNIX_EPOCH};
 
 fn main() -> rsdrav::Result<()> {
     App::new()?.root(Dashboard::new()).run()
@@ -132,15 +131,14 @@ impl Component for Dashboard {
     }
 
     fn handle_event(&mut self, event: &Event, _ctx: &mut EventContext) -> EventResult {
-        match event {
-            Event::Key(key) => match key.code {
+        if let Event::Key(key) = event {
+            match key.code {
                 KeyCode::Char('r') | KeyCode::Char('R') => {
                     self.refresh_stats();
                     return EventResult::Handled;
                 }
                 _ => {}
-            },
-            _ => {}
+            }
         }
 
         EventResult::Ignored

@@ -120,7 +120,6 @@ fn test_style_rendering() {
 fn test_diff_rendering_pipeline() {
     // Simulate a frame update
     let mut buf1 = Buffer::new(20, 10);
-    let mut buf2 = Buffer::new(20, 10);
 
     // Initial frame
     for x in 0..20 {
@@ -128,7 +127,7 @@ fn test_diff_rendering_pipeline() {
     }
 
     // Next frame - change one line
-    buf2 = buf1.clone();
+    let mut buf2 = buf1.clone();
     for x in 0..20 {
         buf2.set(x, 5, Cell::new('-'));
     }

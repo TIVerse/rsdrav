@@ -2,7 +2,6 @@ use criterion::{black_box, criterion_group, criterion_main, BenchmarkId, Criteri
 use rsdrav::prelude::*;
 
 /// Comprehensive benchmark suite for rsdrav
-
 fn bench_component_rendering(c: &mut Criterion) {
     let mut group = c.benchmark_group("component_rendering");
 

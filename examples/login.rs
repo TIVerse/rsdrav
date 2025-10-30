@@ -173,26 +173,23 @@ impl Component for LoginForm {
         }
 
         // Handle form-level shortcuts
-        match event {
-            Event::Key(key) => {
-                if key.modifiers.contains(KeyModifiers::CONTROL) {
-                    match key.code {
-                        KeyCode::Char('l') | KeyCode::Char('L') => {
-                            self.validate_and_login();
-                            return EventResult::Handled;
-                        }
-                        KeyCode::Char('c') | KeyCode::Char('C') => {
-                            self.error_message.set(None);
-                            return EventResult::Handled;
-                        }
-                        _ => {}
+        if let Event::Key(key) = event {
+            if key.modifiers.contains(KeyModifiers::CONTROL) {
+                match key.code {
+                    KeyCode::Char('l') | KeyCode::Char('L') => {
+                        self.validate_and_login();
+                        return EventResult::Handled;
                     }
+                    KeyCode::Char('c') | KeyCode::Char('C') => {
+                        self.error_message.set(None);
+                        return EventResult::Handled;
+                    }
+                    _ => {}
                 }
-
-                // Tab navigation is now handled by App automatically!
-                // No need to handle it here
             }
-            _ => {}
+
+            // Tab navigation is now handled by App automatically!
+            // No need to handle it here
         }
 
         EventResult::Ignored

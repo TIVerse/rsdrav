@@ -49,7 +49,7 @@ impl std::fmt::Display for EmployeeStatus {
 struct DataTableDemo {
     employees: Signal<Vec<Employee>>,
     selected: Signal<Option<usize>>,
-    sort_order: Signal<Option<(usize, SortOrder)>>,
+    _sort_order: Signal<Option<(usize, SortOrder)>>,
 }
 
 impl DataTableDemo {
@@ -57,7 +57,7 @@ impl DataTableDemo {
         Self {
             employees: Signal::new(Self::generate_employees()),
             selected: Signal::new(Some(0)),
-            sort_order: Signal::new(None),
+            _sort_order: Signal::new(None),
         }
     }
 

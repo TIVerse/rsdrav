@@ -15,7 +15,6 @@
 
 use rsdrav::prelude::*;
 use std::fs;
-use std::path::PathBuf;
 
 fn main() -> rsdrav::Result<()> {
     App::new()?.root(FileBrowser::new(".")?).run()
@@ -54,11 +53,11 @@ impl FileBrowser {
     fn read_directory(path: &str) -> rsdrav::Result<Vec<FileEntry>> {
         let mut entries = Vec::new();
 
-        let dir_entries = fs::read_dir(path).map_err(|e| rsdrav::Error::Io(e))?;
+        let dir_entries = fs::read_dir(path).map_err(rsdrav::Error::Io)?;
 
         for entry in dir_entries {
-            let entry = entry.map_err(|e| rsdrav::Error::Io(e))?;
-            let metadata = entry.metadata().map_err(|e| rsdrav::Error::Io(e))?;
+            let entry = entry.map_err(rsdrav::Error::Io)?;
+            let metadata = entry.metadata().map_err(rsdrav::Error::Io)?;
 
             let name = entry.file_name().to_string_lossy().to_string();
 
@@ -99,11 +98,6 @@ impl FileBrowser {
 
 impl Component for FileBrowser {
     fn render(&self, ctx: &RenderContext) -> ViewNode {
-        // Title
-        let title = Text::new("=== File Browser ===")
-            .fg(Color::YELLOW)
-            .add_modifier(Modifier::BOLD);
-
         // Current path display
         let path_display = Text::bind({
             let p = self.current_path.clone();
