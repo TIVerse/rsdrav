@@ -149,7 +149,10 @@ fn test_input_widget() {
 
     let mut store = Store::new();
     let area = Rect::new(0, 0, 80, 24);
-    let mut ctx = EventContext { store: &mut store, area };
+    let mut ctx = EventContext {
+        store: &mut store,
+        area,
+    };
 
     let event = Event::Key(KeyEvent::new(KeyCode::Char('a'), KeyModifiers::empty()));
     let result = input.handle_event(&event, &mut ctx);
@@ -167,7 +170,10 @@ fn test_list_navigation() {
 
     let mut store = Store::new();
     let area = Rect::new(0, 0, 80, 24);
-    let mut ctx = EventContext { store: &mut store, area };
+    let mut ctx = EventContext {
+        store: &mut store,
+        area,
+    };
 
     let down = Event::Key(KeyEvent::new(KeyCode::Down, KeyModifiers::empty()));
     list.handle_event(&down, &mut ctx);
@@ -232,7 +238,10 @@ fn test_tabs_switching() {
 
     let mut store = Store::new();
     let area = Rect::new(0, 0, 80, 24);
-    let mut ctx = EventContext { store: &mut store, area };
+    let mut ctx = EventContext {
+        store: &mut store,
+        area,
+    };
 
     let tab_event = Event::Key(KeyEvent::new(KeyCode::Tab, KeyModifiers::empty()));
     tabs.handle_event(&tab_event, &mut ctx);

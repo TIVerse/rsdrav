@@ -3,9 +3,9 @@
 //! Run with: cargo bench
 
 use criterion::{black_box, criterion_group, criterion_main, Criterion};
+use rsdrav::command;
 use rsdrav::prelude::*;
 use rsdrav::render::{compute_diff, Buffer, Cell};
-use rsdrav::command;
 
 fn bench_buffer_operations(c: &mut Criterion) {
     let mut group = c.benchmark_group("buffer");

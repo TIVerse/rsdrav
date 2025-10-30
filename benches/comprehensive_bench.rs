@@ -71,18 +71,14 @@ fn bench_layout_calculations(c: &mut Criterion) {
     group.bench_function("row_fixed", |b| {
         let row = Row::new();
         let widths = vec![Length::Fixed(100), Length::Fixed(200), Length::Fixed(300)];
-        b.iter(|| {
-            black_box(row.layout(black_box(area), black_box(&widths)))
-        })
+        b.iter(|| black_box(row.layout(black_box(area), black_box(&widths))))
     });
 
     // Column layout
     group.bench_function("column_fill", |b| {
         let col = Column::new();
         let heights = vec![Length::Fill(1), Length::Fill(2), Length::Fill(1)];
-        b.iter(|| {
-            black_box(col.layout(black_box(area), black_box(&heights)))
-        })
+        b.iter(|| black_box(col.layout(black_box(area), black_box(&heights))))
     });
 
     // Flex layout

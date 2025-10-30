@@ -142,7 +142,10 @@ fn test_event_flood() -> Result<()> {
     let mut comp = EventCounter::new();
     let mut store = Store::new();
     let area = Rect::new(0, 0, 80, 24);
-    let mut ctx = EventContext { store: &mut store, area };
+    let mut ctx = EventContext {
+        store: &mut store,
+        area,
+    };
 
     let event_count = 10_000;
     let start = Instant::now();

@@ -126,10 +126,7 @@ impl EventRouter {
 
     /// Add an event handler to a component
     pub fn add_handler(&mut self, component: ComponentId, handler: EventHandler) {
-        self.handlers
-            .entry(component)
-            .or_default()
-            .push(handler);
+        self.handlers.entry(component).or_default().push(handler);
     }
 
     /// Route an event through the component tree
